@@ -1,0 +1,150 @@
+Create a modern railway ticket booking website inspired by IRCTC but redesigned for better user experience.
+
+Requirements:
+- Clean and modern UI
+- Header with logo and navigation menu
+- Hero section with booking search box
+- Tabs for Book Ticket, PNR Status, Train Schedule, Cancel Ticket
+- Input fields: From Station, To Station, Journey Date, Class
+- Swap stations button
+- Search trains button
+- Quick action cards (Book Ticket, Food on Track, Hotels, Tour Packages, Seat Map)
+- Section showing popular trains
+- PNR status checker
+- Footer with About, Services, Quick Links and Contact
+
+Use semantic HTML structure.
+Make it mobile responsive and professional.
+
+
+Write modern CSS for a railway booking portal called BharatRail.
+
+Design requirements:
+- Clean modern design
+- Inspired by Indian Railways colors
+- Tricolor themed header
+- Responsive layout
+- Card style quick links
+- Modern search box UI
+- Train cards with hover effects
+- Professional typography
+- Mobile friendly layout
+- Smooth hover animations
+
+Make it look better than the IRCTC website.
+
+
+Write JavaScript for a railway booking UI.
+
+Features needed:
+- Search trains when the "Search Trains" button is clicked
+- Display results as train cards
+- Each train card should show:
+  Train name
+  Departure and arrival stations
+  Journey time
+  Seat availability
+  Ticket price
+  Book button
+
+Use dummy data to simulate train results.
+Display results dynamically in the train list container.
+
+
+
+Create a station autocomplete feature for a railway booking website.
+
+Requirements:
+- When user types in station input field, show matching stations
+- Suggestions should appear below input box
+- Clicking suggestion fills input field
+- Works for both "From" and "To" fields
+- Use a small sample list of Indian railway stations
+
+Implement using JavaScript.
+
+Write JavaScript to swap the values of two input fields:
+From Station
+To Station
+
+When the swap button is clicked, the values should switch instantly.
+
+Write JavaScript to swap the values of two input fields:
+From Station
+To Station
+
+When the swap button is clicked, the values should switch instantly.
+
+
+Write JavaScript to automatically set the minimum selectable date of a journey date input to today's date so users cannot select past dates.
+
+
+
+
+Create a loading animation when searching trains.
+
+Requirements:
+- When user clicks search trains button
+- Show loading message or spinner
+- Simulate API call delay (1 second)
+- Then display train results
+
+
+
+Create a loading animation when searching trains.
+
+Requirements:
+- When user clicks search trains button
+- Show loading message or spinner
+- Simulate API call delay (1 second)
+- Then display train results
+
+
+
+
+Create a simple PNR status checker using JavaScript.
+
+Requirements:
+- Input field for 10-digit PNR number
+- Button to check status
+- Validate PNR length
+- Display mock passenger status
+Examples:
+Confirmed
+RAC
+Waiting List
+
+Show result below the input field.
+
+
+
+Redesign the IRCTC railway booking interface with a focus on modern UX design.
+
+Goals:
+- Reduce clutter
+- Make booking the primary action
+- Use card based UI
+- Improve readability
+- Provide clear navigation
+- Show popular trains
+- Add quick services like food ordering and hotels
+
+Explain design decisions for better usability.
+
+
+Design a train result card UI for a railway booking website.
+
+Each card should include:
+- Train name
+- Route (From → To)
+- Departure time
+- Arrival time
+- Seat availability indicator
+- Ticket price
+- Book button
+
+Cards should have hover animations and modern design.
+
+
+
+Analyze the usability problems of the IRCTC railway booking website and propose a modern UX redesign that improves booking speed, navigation, and readability.

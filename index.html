@@ -3,25 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RailSwift | Home</title>
+  <title>BharatRail | Modern Railway Booking Portal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body data-page="home">
-  <header>
+  <header class="bharat-header">
+    <div class="bharat-tricolor" aria-hidden="true">
+      <span class="stripe saffron"></span>
+      <span class="stripe white"></span>
+      <span class="stripe green"></span>
+    </div>
     <div class="gov-strip">
       <div class="container">Government of India | Ministry of Railways</div>
     </div>
-    <div class="topbar">
+    <div class="topbar bharat-topbar">
       <nav class="container nav">
         <div class="brand-wrap">
           <img src="assets/images/indian-railways-logo.svg" class="gov-logo" alt="Indian Railways logo" />
-          <a class="brand" href="index.html">
-            <span class="brand-title">RailSwift</span>
-            <span class="brand-subtitle">Smart IRCTC-Inspired Reservation Portal</span>
+          <a class="brand" href="index.html" aria-label="BharatRail home">
+            <span class="brand-title">BharatRail</span>
+            <span class="brand-subtitle">A faster, clearer way to book rail journeys</span>
           </a>
         </div>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">Menu</button>
@@ -29,178 +34,289 @@
           <a class="active" href="index.html">Home</a>
           <a href="booking.html">Book Ticket</a>
           <a href="pnr.html">PNR Status</a>
-          <a href="schedule.html">Train Status</a>
-          <a href="station-enquiry.html">Station Enquiry</a>
-          <a href="destinations.html">Travel Destinations</a>
-          <a href="tour-packages.html">Tour Packages</a>
+          <a href="schedule.html">Train Schedule</a>
           <a href="services.html">Services</a>
-          <a href="my-trips.html">My Bookings</a>
+          <a href="tour-packages.html">Tour Packages</a>
           <a href="contact.html">Contact</a>
           <a id="navDashboardLink" class="hidden" href="dashboard.html">Dashboard</a>
           <a id="navLoginLink" class="btn btn-secondary" href="login.html">Login</a>
         </div>
       </nav>
     </div>
-
-    <div class="notice-ticker" aria-label="Travel alerts">
-      <div class="ticker-track">
-        <span><i class="fa-solid fa-bell"></i> Tatkal booking opens at 10:00 AM (AC) and 11:00 AM (Non-AC).</span>
-        <span><i class="fa-solid fa-shield-halved"></i> Fraud Alert: Never share OTP or card details with unknown callers.</span>
-        <span><i class="fa-solid fa-triangle-exclamation"></i> Carry valid government ID proof during journey.</span>
-        <span><i class="fa-solid fa-bell"></i> Tatkal booking opens at 10:00 AM (AC) and 11:00 AM (Non-AC).</span>
-      </div>
-    </div>
   </header>
 
-  <main>
-    <section class="hero-banner" style="background-image: url('assets/images/services/train-booking.svg');">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <h1 class="hero-title hero-title-light">Indian Railways Reservation, Reimagined</h1>
-        <p class="hero-subtitle hero-subtitle-light">Cleaner booking flow, richer travel discovery, and all key IRCTC services in one place.</p>
+  <main class="bharat-main">
+    <section class="bharat-hero">
+      <div class="container bharat-hero-grid">
+        <div class="bharat-hero-copy">
+          <p class="eyebrow">Modern Railway Booking Experience</p>
+          <h1>Less clutter, faster booking, and a smarter rail travel dashboard.</h1>
+          <p class="hero-subtitle bharat-copy-text">
+            BharatRail rethinks the IRCTC journey with focused booking flows, cleaner information hierarchy,
+            and travel services placed where passengers actually need them.
+          </p>
+          <div class="hero-metrics" aria-label="Portal highlights">
+            <article class="metric-card">
+              <strong>4</strong>
+              <span>clear booking fields above the fold</span>
+            </article>
+            <article class="metric-card">
+              <strong>1 tap</strong>
+              <span>station swap built directly into route entry</span>
+            </article>
+            <article class="metric-card">
+              <strong>Fast</strong>
+              <span>search-focused UI with polished results cards</span>
+            </article>
+          </div>
+        </div>
 
-        <section class="card search-panel">
-                    <form id="homeSearchForm" class="search-form">
-            <label class="form-group from-group">
-              From Station
-              <div class="input-icon-wrap station-field">
-                <i class="fa-solid fa-location-dot"></i>
-                <input id="fromStation" placeholder="Station name or code" autocomplete="off" required />`r`n                <div class="dropdown station-dropdown hidden" id="fromDropdown"></div>
-              </div>
-            </label>
-
-            <div class="swap-group">
-              <button type="button" id="swapStationsHome" class="swap-btn" aria-label="Swap stations">&#8646;</button>
+        <section class="bharat-search-shell" aria-labelledby="bookingHubTitle">
+          <div class="search-shell-head">
+            <div>
+              <p class="shell-kicker">Travel Command Center</p>
+              <h2 id="bookingHubTitle">Book and manage your journey</h2>
             </div>
+            <span class="live-pill">Live UI Demo</span>
+          </div>
 
-            <label class="form-group to-group">
-              To Station
-              <div class="input-icon-wrap station-field">
-                <i class="fa-solid fa-flag-checkered"></i>
-                <input id="toStation" placeholder="Destination station" autocomplete="off" required />`r`n                <div class="dropdown station-dropdown hidden" id="toDropdown"></div>
-              </div>
-            </label>
+          <div class="booking-tabs" role="tablist" aria-label="Rail actions">
+            <button class="booking-tab active" id="tab-book" type="button" role="tab" aria-selected="true" aria-controls="panel-book" data-tab-target="book">Book Ticket</button>
+            <button class="booking-tab" id="tab-pnr" type="button" role="tab" aria-selected="false" aria-controls="panel-pnr" data-tab-target="pnr">PNR Status</button>
+            <button class="booking-tab" id="tab-schedule" type="button" role="tab" aria-selected="false" aria-controls="panel-schedule" data-tab-target="schedule">Train Schedule</button>
+            <button class="booking-tab" id="tab-cancel" type="button" role="tab" aria-selected="false" aria-controls="panel-cancel" data-tab-target="cancel">Cancel Ticket</button>
+          </div>
 
-            <label class="form-group date-group">
-              Journey Date
-              <div class="input-icon-wrap">
-                <i class="fa-regular fa-calendar"></i>
-                <input type="date" id="travelDate" required />
-              </div>
-            </label>
-            <label class="form-group class-group">
-              Class
-              <div class="input-icon-wrap">
-                <i class="fa-solid fa-ticket"></i>
-                <select id="travelClass" required>
-                  <option value="SL">Sleeper (SL)</option>
-                  <option value="2S">Second Sitting (2S)</option>
-                  <option value="3A">AC 3 Tier (3A)</option>
-                  <option value="2A">AC 2 Tier (2A)</option>
-                  <option value="1A">AC First Class (1A)</option>
-                  <option value="EC">Executive Chair Car (EC)</option>
-                  <option value="CC">Chair Car (CC)</option>
-                </select>
-              </div>
-            </label>
-            <label class="form-group quota-group">
-              Quota
-              <div class="input-icon-wrap">
-                <i class="fa-solid fa-users"></i>
-                <select id="travelQuota" required>
-                  <option value="General">General</option>
-                  <option value="Tatkal">Tatkal</option>
-                  <option value="Ladies">Ladies</option>
-                  <option value="Senior Citizen">Senior Citizen</option>
-                  <option value="Armed Forces">Armed Forces</option>
-                </select>
-              </div>
-            </label>
-            <div class="search-action search-group">
-              <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search Trains</button>
-            </div>
-          </form>
+          <div class="booking-panels">
+            <section class="booking-panel active" id="panel-book" role="tabpanel" aria-labelledby="tab-book">
+              <div class="booking-highlight-card">
+                <form id="homeSearchForm" class="bharat-search-form" novalidate>
+                  <label class="form-group bharat-field">
+                    <span class="bharat-label">From Station</span>
+                    <div class="input-icon-wrap station-field home-station-field route-field route-field-from">
+                      <i class="fa-solid fa-location-dot"></i>
+                      <input id="fromStation" placeholder="New Delhi or NDLS" autocomplete="off" required />
+                      <button type="button" id="swapStationsHome" class="bharat-inline-swap" aria-label="Swap stations">
+                        <i class="fa-solid fa-right-left"></i>
+                      </button>
+                      <div class="station-dropdown hidden" id="fromSuggestions"></div>
+                    </div>
+                  </label>
 
-          <div id="homeMessage" class="message hidden"></div>
-          <div class="notice">Important: Carry a valid ID proof during travel.</div>
+                  <label class="form-group bharat-field">
+                    <span class="bharat-label">To Station</span>
+                    <div class="input-icon-wrap station-field home-station-field route-field">
+                      <i class="fa-solid fa-flag-checkered"></i>
+                      <input id="toStation" placeholder="Mumbai Central or MMCT" autocomplete="off" required />
+                      <div class="station-dropdown hidden" id="toSuggestions"></div>
+                    </div>
+                  </label>
+
+                  <label class="form-group bharat-field">
+                    <span class="bharat-label">Journey Date</span>
+                    <div class="input-icon-wrap route-field">
+                      <i class="fa-regular fa-calendar"></i>
+                      <input type="date" id="travelDate" required />
+                    </div>
+                  </label>
+
+                  <label class="form-group bharat-field">
+                    <span class="bharat-label">Class</span>
+                    <div class="input-icon-wrap route-field">
+                      <i class="fa-solid fa-train"></i>
+                      <select id="travelClass" required>
+                        <option value="3A">AC 3 Tier</option>
+                        <option value="2A">AC 2 Tier</option>
+                        <option value="SL">Sleeper</option>
+                        <option value="CC">Chair Car</option>
+                        <option value="EC">Executive Chair Car</option>
+                      </select>
+                    </div>
+                  </label>
+
+                  <button class="btn bharat-search-btn" id="searchTrainsBtn" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="search-btn-text">Search Trains</span>
+                  </button>
+                </form>
+
+                <div id="homeMessage" class="message hidden"></div>
+
+                <div id="searchLoading" class="search-loading hidden" aria-live="polite">
+                  <span class="inline-spinner" aria-hidden="true"></span>
+                  <span>Searching trains and checking sample availability...</span>
+                </div>
+              </div>
+
+              <section class="search-results-shell" aria-labelledby="searchResultsTitle">
+                <div class="search-results-head">
+                  <div>
+                    <p class="shell-kicker">Results</p>
+                    <h3 id="searchResultsTitle">Train options and popular routes</h3>
+                    <p class="muted">Before search, BharatRail suggests common routes. After search, this space transforms into polished train cards.</p>
+                  </div>
+                </div>
+                <div id="trainListContainer" class="bharat-train-list" aria-live="polite"></div>
+              </section>
+            </section>
+
+            <section class="booking-panel" id="panel-pnr" role="tabpanel" aria-labelledby="tab-pnr">
+              <div class="mini-panel">
+                <h3>Check your PNR instantly</h3>
+                <p class="muted">Enter a 10-digit PNR number to view a mock passenger status.</p>
+                <div class="pnr-inline-form">
+                  <label class="form-group">
+                    10-digit PNR Number
+                    <input id="pnrInput" inputmode="numeric" maxlength="10" placeholder="Enter PNR number" />
+                  </label>
+                  <button id="checkPnrBtn" class="btn" type="button">Check Status</button>
+                </div>
+                <div id="pnrResult" class="pnr-result-card hidden"></div>
+              </div>
+            </section>
+
+            <section class="booking-panel" id="panel-schedule" role="tabpanel" aria-labelledby="tab-schedule">
+              <div class="mini-panel">
+                <h3>Train schedule, simplified</h3>
+                <p class="muted">A modern schedule lookup would surface running days, platform hints, and route timing in a single scan-friendly card.</p>
+                <div class="info-callout">
+                  <strong>UX choice:</strong> schedule search is separated from booking so passengers can check timings without losing a partially filled booking form.
+                </div>
+                <a class="btn btn-secondary" href="schedule.html">Open Schedule Page</a>
+              </div>
+            </section>
+
+            <section class="booking-panel" id="panel-cancel" role="tabpanel" aria-labelledby="tab-cancel">
+              <div class="mini-panel">
+                <h3>Cancellation should not be hidden</h3>
+                <p class="muted">Legacy rail portals bury refund and cancellation actions. BharatRail keeps the action visible at the same level as booking and status checks.</p>
+                <div class="info-callout">
+                  <strong>UX choice:</strong> high-frequency actions are placed in tabs to reduce menu hunting and speed up task completion.</div>
+                <a class="btn btn-secondary" href="dashboard.html">Manage Booking</a>
+              </div>
+            </section>
+          </div>
         </section>
       </div>
     </section>
 
-    <section class="container page-wrap section-block reveal">
+    <section class="container section-block">
       <div class="section-head">
-        <h2>Services Hub</h2>
-        <p class="muted">Modern cards for every major railway and travel service.</p>
+        <h2>Quick Services</h2>
+        <p class="muted">Card-based shortcuts for the services passengers use most during trip planning.</p>
       </div>
-      <div id="serviceHubGrid" class="service-hub-grid"></div>
+      <div class="bharat-quick-grid">
+        <a class="quick-service-card" href="booking.html">
+          <i class="fa-solid fa-ticket-simple"></i>
+          <h3>Book Ticket</h3>
+          <p>Start a reservation flow with fewer distractions.</p>
+        </a>
+        <a class="quick-service-card" href="service.html?service=e-catering">
+          <i class="fa-solid fa-utensils"></i>
+          <h3>Food on Track</h3>
+          <p>Order meals by station stop with clearer delivery timing.</p>
+        </a>
+        <a class="quick-service-card" href="service.html?service=hotels">
+          <i class="fa-solid fa-hotel"></i>
+          <h3>Hotels</h3>
+          <p>Pair your rail booking with a stay near the station.</p>
+        </a>
+        <a class="quick-service-card" href="tour-packages.html">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <h3>Tour Packages</h3>
+          <p>Discover curated rail-led journeys across India.</p>
+        </a>
+        <a class="quick-service-card" href="seat-availability.html">
+          <i class="fa-solid fa-couch"></i>
+          <h3>Seat Map</h3>
+          <p>View seat layouts and availability in a friendlier format.</p>
+        </a>
+      </div>
     </section>
 
-    <section class="container section-block reveal">
+    <section class="container section-block">
       <div class="section-head">
-        <h2>Train Tools</h2>
-        <p class="muted">Quick-access tools for status checks and journey management.</p>
+        <h2>Popular Trains</h2>
+        <p class="muted">High-demand routes presented as readable cards instead of dense tables.</p>
       </div>
-      <div class="tool-grid">
-        <a class="tool-card" href="pnr.html"><i class="fa-solid fa-hashtag"></i>PNR Status</a>
-        <a class="tool-card" href="seat-availability.html"><i class="fa-solid fa-chair"></i>Seat Availability</a>
-        <a class="tool-card" href="schedule.html"><i class="fa-regular fa-clock"></i>Train Schedule</a>
-        <a class="tool-card" href="track-train.html"><i class="fa-solid fa-location-crosshairs"></i>Track Train</a>
-        <a class="tool-card" href="dashboard.html"><i class="fa-solid fa-ban"></i>Cancel Ticket</a>
-        <a class="tool-card" href="dashboard.html"><i class="fa-solid fa-arrows-turn-right"></i>Change Boarding Point</a>
-      </div>
-    </section>
-
-    <section class="container section-block reveal">
-      <div class="section-head">
-        <h2>Travel Destinations</h2>
-        <p class="muted">Click a destination to view top trains and fastest routes.</p>
-      </div>
-      <div id="destinationGrid" class="destination-grid"></div>
-      <article id="destinationInsights" class="destination-insights card hidden"></article>
-    </section>
-
-    <section class="container section-block reveal">
-      <div class="section-head">
-        <h2>Tour Packages</h2>
-        <p class="muted">Curated rail holidays and tourism experiences.</p>
-      </div>
-      <div id="packageGrid" class="package-grid"></div>
-    </section>
-
-    <section class="container section-block reveal">
-      <div class="feature-header">
-        <h2>Why RailSwift</h2>
-        <p class="muted">Built to remove common IRCTC pain points and make booking smooth.</p>
-      </div>
-      <div class="feature-grid">
-        <article class="feature-card">
-          <i class="fa-solid fa-bolt"></i>
-          <h3>Faster Booking</h3>
-          <p>Reduced clicks and no clutter for quicker ticket confirmation.</p>
+      <div class="popular-trains-grid">
+        <article class="popular-train-card">
+          <div class="popular-train-top">
+            <div>
+              <p class="train-tag">Premium Express</p>
+              <h3>Vande Bharat Express</h3>
+            </div>
+            <span class="availability-pill is-available">High Demand</span>
+          </div>
+          <p class="muted">New Delhi to Varanasi</p>
+          <div class="popular-train-meta">
+            <span><strong>06:00</strong> Departure</span>
+            <span><strong>14:00</strong> Arrival</span>
+            <span><strong>8h 00m</strong> Duration</span>
+          </div>
         </article>
-        <article class="feature-card">
-          <i class="fa-solid fa-route"></i>
-          <h3>Better Station Search</h3>
-          <p>Smart station dropdown with instant code/name/city filtering.</p>
+
+        <article class="popular-train-card">
+          <div class="popular-train-top">
+            <div>
+              <p class="train-tag">Rajdhani</p>
+              <h3>Mumbai Rajdhani</h3>
+            </div>
+            <span class="availability-pill is-rac">Limited Seats</span>
+          </div>
+          <p class="muted">Mumbai Central to Hazrat Nizamuddin</p>
+          <div class="popular-train-meta">
+            <span><strong>16:35</strong> Departure</span>
+            <span><strong>08:32</strong> Arrival</span>
+            <span><strong>15h 57m</strong> Duration</span>
+          </div>
         </article>
-        <article class="feature-card">
-          <i class="fa-solid fa-mobile-screen-button"></i>
-          <h3>Mobile Friendly</h3>
-          <p>Responsive layout designed for both desktop and phone screens.</p>
+
+        <article class="popular-train-card">
+          <div class="popular-train-top">
+            <div>
+              <p class="train-tag">Superfast</p>
+              <h3>Shatabdi Express</h3>
+            </div>
+            <span class="availability-pill is-available">Booking Open</span>
+          </div>
+          <p class="muted">Chennai Central to Mysuru Junction</p>
+          <div class="popular-train-meta">
+            <span><strong>06:00</strong> Departure</span>
+            <span><strong>12:25</strong> Arrival</span>
+            <span><strong>6h 25m</strong> Duration</span>
+          </div>
         </article>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-links">
-        <a href="#">About IRCTC</a>
-        <a href="contact.html">Contact</a>
-        <a href="#">Terms and Conditions</a>
-        <a href="#">Privacy Policy</a>
-      </div>
-      <p class="footer-copy">RailSwift - Cleaner UX for Indian Rail Reservations</p>
+  <footer class="site-footer bharat-footer">
+    <div class="container footer-grid">
+      <section>
+        <h3>About</h3>
+        <p>BharatRail is a concept redesign focused on faster booking, cleaner navigation, and better readability for railway passengers.</p>
+      </section>
+      <section>
+        <h3>Services</h3>
+        <a href="booking.html">Book Ticket</a>
+        <a href="pnr.html">PNR Status</a>
+        <a href="schedule.html">Train Schedule</a>
+        <a href="seat-availability.html">Seat Map</a>
+      </section>
+      <section>
+        <h3>Quick Links</h3>
+        <a href="services.html">Travel Services</a>
+        <a href="tour-packages.html">Tour Packages</a>
+        <a href="my-trips.html">My Bookings</a>
+        <a href="contact.html">Help & Support</a>
+      </section>
+      <section>
+        <h3>Contact</h3>
+        <p>Railway Helpline: 139</p>
+        <p>Email: support@bharatrail.demo</p>
+        <p>Available 24x7 for passenger assistance.</p>
+      </section>
     </div>
   </footer>
 
@@ -208,7 +324,4 @@
   <script src="assets/js/home.js"></script>
 </body>
 </html>
-
-
-
 
