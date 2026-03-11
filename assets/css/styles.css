@@ -1436,3 +1436,85 @@ textarea:focus {
     grid-template-columns: 1fr;
   }
 }
+
+/* Search form layout fix */
+.search-form {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) auto minmax(180px, 1fr) minmax(140px, 1fr) minmax(140px, 1fr) minmax(140px, 1fr);
+  grid-template-areas:
+    "from swap to date class quota"
+    "search search search search search search";
+  gap: 16px;
+  align-items: end;
+}
+
+.search-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.32rem;
+  min-width: 0;
+}
+
+.search-form .from-group { grid-area: from; }
+.search-form .to-group { grid-area: to; }
+.search-form .date-group { grid-area: date; }
+.search-form .class-group { grid-area: class; }
+.search-form .quota-group { grid-area: quota; }
+.search-form .swap-group { grid-area: swap; display: flex; align-items: end; justify-content: center; }
+.search-form .search-group { grid-area: search; display: flex; justify-content: flex-end; }
+
+.station-field {
+  position: relative;
+}
+
+.swap-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #991b1b;
+  cursor: pointer;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.swap-btn:hover {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 1024px) {
+  .search-form {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "from to"
+      "date class"
+      "quota search";
+  }
+
+  .search-form .swap-group {
+    display: none;
+  }
+
+  .search-form .search-group {
+    justify-content: flex-start;
+    align-items: end;
+  }
+}
+
+@media (max-width: 640px) {
+  .search-form {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "from"
+      "to"
+      "date"
+      "class"
+      "quota"
+      "search";
+  }
+
+  .search-form .search-group .btn {
+    width: 100%;
+  }
+}

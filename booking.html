@@ -51,33 +51,33 @@
       <div id="bookingMessage" class="message hidden"></div>
 
       <div id="step1">
-        <form id="bookingSearchForm" class="form-grid">
-          <div class="station-pair-grid">
-            <label>From Station
-              <div class="input-icon-wrap">
-                <i class="fa-solid fa-location-dot"></i>
-                <input id="fromStation" placeholder="Station name or code" required />
-              </div>
-            </label>
+                <form id="bookingSearchForm" class="search-form">
+          <label class="form-group from-group">From Station
+            <div class="input-icon-wrap station-field">
+              <i class="fa-solid fa-location-dot"></i>
+              <input id="fromStation" placeholder="Station name or code" autocomplete="off" required />
+            </div>
+          </label>
 
+          <div class="swap-group">
             <button type="button" id="swapStationsBooking" class="swap-btn" aria-label="Swap stations">&#8646;</button>
-
-            <label>To Station
-              <div class="input-icon-wrap">
-                <i class="fa-solid fa-flag-checkered"></i>
-                <input id="toStation" placeholder="Station name or code" required />
-              </div>
-            </label>
           </div>
 
-          <label>Journey Date
+          <label class="form-group to-group">To Station
+            <div class="input-icon-wrap station-field">
+              <i class="fa-solid fa-flag-checkered"></i>
+              <input id="toStation" placeholder="Destination station" autocomplete="off" required />
+            </div>
+          </label>
+
+          <label class="form-group date-group">Journey Date
             <div class="input-icon-wrap">
               <i class="fa-regular fa-calendar"></i>
               <input type="date" id="journeyDate" required />
             </div>
           </label>
 
-          <label>Class
+          <label class="form-group class-group">Class
             <div class="input-icon-wrap">
               <i class="fa-solid fa-ticket"></i>
               <select id="journeyClass" required>
@@ -92,7 +92,7 @@
             </div>
           </label>
 
-          <label>Quota
+          <label class="form-group quota-group">Quota
             <div class="input-icon-wrap">
               <i class="fa-solid fa-users"></i>
               <select id="journeyQuota" required>
@@ -105,7 +105,7 @@
             </div>
           </label>
 
-          <div class="search-action"><button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search Trains</button></div>
+          <div class="search-action search-group"><button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search Trains</button></div>
         </form>
       </div>
 
@@ -213,3 +213,4 @@
   <script src="assets/js/booking.js"></script>
 </body>
 </html>
+

@@ -1,85 +1,110 @@
-ï»¿# RailSwift - Indian Railways Style Reservation Portal
+# RailSwift - Modern Indian Railway Reservation System
 
-This project provides an IRCTC-style reservation flow with OTP auth, large station/train datasets, station autocomplete, train search, seat availability simulation, seat selection, and ticket generation.
+A redesigned railway booking portal inspired by IRCTC with improved UI, faster station search, and a simplified booking flow.
 
-## Implemented Features
+## Features
+- Train search (From, To, Date, Class, Quota)
+- Station autocomplete dropdown (name/code/city search)
+- Passenger details and multi-step reservation flow
+- Seat selection interface with visual coach layout
+- Tatkal option and availability indicators
+- PNR status check
+- Ticket generation with QR and download/print options
+- Travel destinations and tour packages sections
+- Services hub and quick train tools
+- Modern, responsive UI/UX with Indian Railways theme
 
-- Government-style portal UI (red/white/grey, structured sections)
-- OTP login/signup verification backend (`/send-otp`, `/verify-otp`)
-- Large station database in `stations.json` (7200 records)
-- Train schedule database in `trains.json` (420 records)
-- Station autocomplete by name/code (top 10 suggestions)
-- Train search by From, To, Date, Class
-- Running day checks based on selected date
-- Class-wise seat availability simulation (`Available`, `RAC`, `Waiting List`)
-- Booking flow:
-  - Search Train
-  - Select Train
-  - Passenger Details
-  - Seat Selection
-  - Payment
-  - Ticket Generation
-- Passenger fields include ID type/number and travel category
-- Tatkal booking toggle with extra charge and warning
-- Ticket with PNR, coach, seat, class, category, status
-- QR code + PDF download + print view
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
+- Node.js + Express (for API/OTP features)
 
-## Data Files
-
-- `stations.json` and `data/stations.json`
-- `trains.json` and `data/trains.json`
-
-### Important Note on Dataset
-
-The repository includes a **large-scale mixed dataset** for performance testing and full-flow functionality:
-- Core real station/train entries are included (for example NDLS, AWY, CLT and major trains/routes)
-- Additional records are generated to reach large volume (7000+ stations, 400+ trains)
-
-If you need an official full production railway master dataset, replace these JSON files with your authoritative source while keeping the same schema.
-
-## API Endpoints
-
-### OTP
-- `POST /send-otp`
-- `POST /verify-otp`
-
-### Station Search
-- `GET /api/stations/search?q=<query>&limit=10`
-- `GET /api/stations/:code`
-
-### Train Search
-- `GET /api/trains/search?from=<CODE>&to=<CODE>&date=YYYY-MM-DD&class=<CLASS>`
-- `GET /api/trains/:number?date=YYYY-MM-DD`
-
-### Meta/Health
-- `GET /api/meta`
-- `GET /health`
-
-## Run Instructions
-
-1. Install dependencies:
-
-```bash
-npm install
+## Project Structure
+```text
+railswift-reservation/
++-- index.html
++-- login.html
++-- signup.html
++-- booking.html
++-- pnr.html
++-- pnr-status.html
++-- schedule.html
++-- station-enquiry.html
++-- seat-availability.html
++-- track-train.html
++-- services.html
++-- service.html
++-- destinations.html
++-- tour-packages.html
++-- my-trips.html
++-- contact.html
++-- dashboard.html
++-- ticket.html
++-- server.js
++-- package.json
++-- README.md
++-- .gitignore
++-- assets/
+¦   +-- css/
+¦   ¦   +-- styles.css
+¦   +-- js/
+¦   ¦   +-- common.js
+¦   ¦   +-- home.js
+¦   ¦   +-- booking.js
+¦   ¦   +-- pnr.js
+¦   ¦   +-- station.js
+¦   ¦   +-- schedule.js
+¦   ¦   +-- seat-availability.js
+¦   ¦   +-- track-train.js
+¦   ¦   +-- services-page.js
+¦   ¦   +-- service.js
+¦   ¦   +-- destinations-page.js
+¦   ¦   +-- packages-page.js
+¦   ¦   +-- ...
+¦   +-- images/
+¦       +-- destinations/
+¦       +-- packages/
+¦       +-- services/
+¦       +-- indian-railways-logo.svg
++-- data/
+¦   +-- stations.json
+¦   +-- trains.json
+¦   +-- destinations.json
+¦   +-- services.json
+¦   +-- packages.json
++-- scripts/
+    +-- generate-data.ps1
 ```
 
-2. Create `.env` from `.env.example` and configure SMS provider credentials.
+## How to Run
+### Option 1 (quick static open)
+1. Clone the repository.
+2. Open `index.html` in your browser.
 
+### Option 2 (recommended full functionality)
+1. Clone the repository.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 3. Start server:
-
-```bash
-npm start
-```
-
+   ```bash
+   npm start
+   ```
 4. Open:
+   - `http://localhost:3000/index.html`
 
-- `http://localhost:3000/index.html`
-
-## Optional Data Regeneration
-
-To regenerate large datasets:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts/generate-data.ps1
+## GitHub Setup Commands
+```bash
+git init
+git add .
+git commit -m "Initial commit - RailSwift railway reservation system"
+git branch -M main
+git remote add origin https://github.com/USERNAME/railswift-reservation.git
+git push -u origin main
 ```
 
+## Notes
+- Large datasets are available in `data/stations.json` and `data/trains.json`.
+- For OTP features, configure `.env` values before running backend endpoints in production.

@@ -459,15 +459,7 @@
     if (!dateInput.value) dateInput.value = minDate;
   }
 
-  if (swapStationsBtn) {
-    swapStationsBtn.addEventListener("click", function () {
-      const fromInput = RP.byId("fromStation");
-      const toInput = RP.byId("toStation");
-      const currentFrom = fromInput.value;
-      fromInput.value = toInput.value;
-      toInput.value = currentFrom;
-    });
-  }
+  if (swapStationsBtn) {`r`n    swapStationsBtn.addEventListener("click", function swapStations() {`r`n      RP.swapStations("fromStation", "toStation");`r`n    });`r`n  }
   filterButtons.forEach((button) => {
     button.addEventListener("click", function () {
       activeTrainFilter = button.getAttribute("data-train-filter") || "recommended";
@@ -730,6 +722,8 @@
   addPassenger();
   setStep(1);
 })();
+
+
 
 
 

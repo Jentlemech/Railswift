@@ -238,15 +238,7 @@
   RP.attachStationAutocomplete("fromStation");
   RP.attachStationAutocomplete("toStation");
 
-  if (swapBtn) {
-    swapBtn.addEventListener("click", function () {
-      const fromInput = RP.byId("fromStation");
-      const toInput = RP.byId("toStation");
-      const tmp = fromInput.value;
-      fromInput.value = toInput.value;
-      toInput.value = tmp;
-    });
-  }
+  if (swapBtn) {`r`n    swapBtn.addEventListener("click", function swapStations() {`r`n      RP.swapStations("fromStation", "toStation");`r`n    });`r`n  }
 
   const minDate = todayString();
   dateInput.min = minDate;
@@ -309,6 +301,8 @@
       RP.showMessage("homeMessage", "Some travel sections could not be loaded. Please refresh.", "error");
     });
 })();
+
+
 
 
 

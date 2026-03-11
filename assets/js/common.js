@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   const classLabels = {
     SL: "Sleeper (SL)",
     "2S": "Second Sitting (2S)",
@@ -357,6 +357,15 @@
     return payload;
   }
 
+  function swapStations(fromId, toId) {
+    const from = byId(fromId);
+    const to = byId(toId);
+    if (!from || !to) return;
+
+    const temp = from.value;
+    from.value = to.value;
+    to.value = temp;
+  }
   function generatePNR() {
     return String(Math.floor(1000000000 + Math.random() * 9000000000));
   }
@@ -423,6 +432,7 @@
     attachStationAutocomplete,
     searchTrains,
     generatePNR,
+    swapStations,
     updateAuthNav,
     setupNavToggle,
     requireAuth,
@@ -439,3 +449,5 @@
     });
   });
 })();
+
+
