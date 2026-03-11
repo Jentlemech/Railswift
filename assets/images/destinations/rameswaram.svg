@@ -1,0 +1,27 @@
+﻿<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 700' role='img' aria-label='Rameswaram'>
+  <defs>
+    <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#06b6d4'/>
+      <stop offset='100%' stop-color='#eab308'/>
+    </linearGradient>
+    <linearGradient id='fog' x1='0' y1='1' x2='0' y2='0'>
+      <stop offset='0%' stop-color='rgba(0,0,0,0.55)'/>
+      <stop offset='70%' stop-color='rgba(0,0,0,0.05)'/>
+    </linearGradient>
+  </defs>
+  <rect width='1200' height='700' fill='url(#g)'/>
+  <circle cx='980' cy='110' r='82' fill='rgba(255,255,255,0.35)'/>
+  <path d='M0 520 C 140 450 250 600 390 530 C 520 470 680 620 860 520 C 980 450 1060 540 1200 500 L1200 700 L0 700 Z' fill='rgba(255,255,255,0.22)'/>
+  <path d='M0 560 C 180 500 330 650 500 570 C 660 500 860 670 1040 560 C 1110 520 1160 560 1200 550 L1200 700 L0 700 Z' fill='rgba(17,24,39,0.25)'/>
+  <g transform='translate(160,440)'>
+    <rect x='0' y='0' width='600' height='70' rx='10' fill='rgba(255,255,255,0.86)'/>
+    <rect x='40' y='-46' width='230' height='52' rx='8' fill='rgba(255,255,255,0.86)'/>
+    <rect x='305' y='12' width='80' height='24' rx='4' fill='rgba(17,24,39,0.6)'/>
+    <rect x='402' y='12' width='80' height='24' rx='4' fill='rgba(17,24,39,0.6)'/>
+    <circle cx='118' cy='80' r='22' fill='#111827'/>
+    <circle cx='470' cy='80' r='22' fill='#111827'/>
+  </g>
+  <rect width='1200' height='700' fill='url(#fog)'/>
+  <text x='70' y='610' fill='white' font-family='Roboto, Arial, sans-serif' font-size='66' font-weight='700'>Rameswaram</text>
+  <text x='74' y='650' fill='rgba(255,255,255,0.95)' font-family='Roboto, Arial, sans-serif' font-size='28'>Discover by Rail</text>
+</svg>

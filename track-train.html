@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RailSwift | Track Train</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="track-train">
+  <header>
+    <div class="gov-strip"><div class="container">Government of India | Ministry of Railways</div></div>
+    <div class="topbar">
+      <nav class="container nav">
+        <div class="brand-wrap"><img src="assets/images/indian-railways-logo.svg" class="gov-logo" alt="Indian Railways logo" /><a class="brand" href="index.html"><span class="brand-title">RailSwift</span><span class="brand-subtitle">Indian Railways e-Service Portal</span></a></div>
+        <button class="nav-toggle" id="navToggle">Menu</button>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="booking.html">Book Ticket</a>
+          <a href="pnr.html">PNR Status</a>
+          <a class="active" href="track-train.html">Train Status</a>
+          <a href="station-enquiry.html">Station Enquiry</a>
+          <a href="destinations.html">Travel Destinations</a>
+          <a href="tour-packages.html">Tour Packages</a>
+          <a href="services.html">Services</a>
+          <a href="my-trips.html">My Bookings</a>
+          <a href="contact.html">Contact</a>
+          <a id="navDashboardLink" class="hidden" href="dashboard.html">Dashboard</a>
+          <a id="navLoginLink" class="btn btn-secondary" href="login.html">Login</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-wrap">
+    <p class="breadcrumb"><a href="index.html">Home</a> / <span>Track Train</span></p>
+
+    <section class="card">
+      <h1>Track Train (Simulated Live)</h1>
+      <form id="trackForm" class="form-grid-2">
+        <label>Train Number<input id="trackNumber" placeholder="e.g. 12617" required /></label>
+        <div style="display:flex;align-items:end;"><button class="btn" type="submit">Track Now</button></div>
+      </form>
+      <div id="trackMessage" class="message hidden"></div>
+      <div id="trackResult" class="card hidden" style="margin-top:0.8rem;"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><div class="footer-links"><a href="#">About IRCTC</a><a href="contact.html">Contact</a><a href="#">Terms and Conditions</a><a href="#">Privacy Policy</a></div><p class="footer-copy">RailSwift - Train Tracking Tool</p></div></footer>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/track-train.js"></script>
+</body>
+</html>

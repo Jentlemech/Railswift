@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Goa",
+    "slug": "goa",
+    "image": "assets/images/destinations/goa.svg",
+    "description": "Beautiful beaches, nightlife, and coastal train journeys.",
+    "nearest_station": "Madgaon (MAO)",
+    "nearest_code": "MAO"
+  },
+  {
+    "name": "Kerala Backwaters",
+    "slug": "kerala-backwaters",
+    "image": "assets/images/destinations/kerala-backwaters.svg",
+    "description": "Lush canals, houseboats, and scenic rail routes.",
+    "nearest_station": "Alappuzha (ALLP)",
+    "nearest_code": "ALLP"
+  },
+  {
+    "name": "Jaipur",
+    "slug": "jaipur",
+    "image": "assets/images/destinations/jaipur.svg",
+    "description": "Pink City palaces, forts, and vibrant bazaars.",
+    "nearest_station": "Jaipur Junction (JP)",
+    "nearest_code": "JP"
+  },
+  {
+    "name": "Varanasi",
+    "slug": "varanasi",
+    "image": "assets/images/destinations/varanasi.svg",
+    "description": "Ancient ghats and spiritual heritage by the Ganges.",
+    "nearest_station": "Varanasi Junction (BSB)",
+    "nearest_code": "BSB"
+  },
+  {
+    "name": "Darjeeling",
+    "slug": "darjeeling",
+    "image": "assets/images/destinations/darjeeling.svg",
+    "description": "Tea gardens and famous mountain railway experiences.",
+    "nearest_station": "New Jalpaiguri (NJP)",
+    "nearest_code": "NJP"
+  },
+  {
+    "name": "Shimla",
+    "slug": "shimla",
+    "image": "assets/images/destinations/shimla.svg",
+    "description": "Toy train charm and cool Himalayan retreats.",
+    "nearest_station": "Kalka (KLK)",
+    "nearest_code": "KLK"
+  },
+  {
+    "name": "Kashmir",
+    "slug": "kashmir",
+    "image": "assets/images/destinations/kashmir.svg",
+    "description": "Snow valleys, lakes, and unforgettable mountain views.",
+    "nearest_station": "Srinagar (SINA)",
+    "nearest_code": "SINA"
+  },
+  {
+    "name": "Rameswaram",
+    "slug": "rameswaram",
+    "image": "assets/images/destinations/rameswaram.svg",
+    "description": "Sacred island town linked by iconic sea bridge rail.",
+    "nearest_station": "Rameswaram (RMM)",
+    "nearest_code": "RMM"
+  },
+  {
+    "name": "Kanyakumari",
+    "slug": "kanyakumari",
+    "image": "assets/images/destinations/kanyakumari.svg",
+    "description": "Southern tip sunsets and confluence of three seas.",
+    "nearest_station": "Kanniyakumari (CAPE)",
+    "nearest_code": "CAPE"
+  },
+  {
+    "name": "Ooty",
+    "slug": "ooty",
+    "image": "assets/images/destinations/ooty.svg",
+    "description": "Nilgiri hills with heritage mountain rail journey.",
+    "nearest_station": "Mettupalayam (MTP)",
+    "nearest_code": "MTP"
+  }
+]

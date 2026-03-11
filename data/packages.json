@@ -1,0 +1,42 @@
+[
+  {
+    "id": "maharajas-express",
+    "name": "Maharajas Express",
+    "image": "assets/images/packages/maharajas-express.svg",
+    "description": "Ultra-luxury train journeys across iconic Indian circuits.",
+    "duration": "4-7 nights",
+    "starting_price": "INR 4,95,000"
+  },
+  {
+    "id": "bharat-gaurav",
+    "name": "Bharat Gaurav Tourist Train",
+    "image": "assets/images/packages/bharat-gaurav.svg",
+    "description": "Theme-based pilgrimage and heritage train tours.",
+    "duration": "5-10 nights",
+    "starting_price": "INR 18,500"
+  },
+  {
+    "id": "rail-tour-packages",
+    "name": "Rail Tour Packages",
+    "image": "assets/images/packages/rail-tour-packages.svg",
+    "description": "Curated rail plus hotel and local sightseeing bundles.",
+    "duration": "3-8 nights",
+    "starting_price": "INR 11,999"
+  },
+  {
+    "id": "international-packages",
+    "name": "International Packages",
+    "image": "assets/images/packages/international-packages.svg",
+    "description": "Global holiday packages with flight and visa support.",
+    "duration": "4-9 nights",
+    "starting_price": "INR 59,999"
+  },
+  {
+    "id": "domestic-packages",
+    "name": "Domestic Packages",
+    "image": "assets/images/packages/domestic-packages.svg",
+    "description": "Affordable rail-centric vacations across India.",
+    "duration": "2-6 nights",
+    "starting_price": "INR 8,499"
+  }
+]

@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RailSwift | Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="login">
+  <header>
+    <div class="gov-strip"><div class="container">Government of India | Ministry of Railways</div></div>
+    <div class="topbar">
+      <nav class="container nav">
+        <div class="brand-wrap">
+          <img src="assets/images/indian-railways-logo.svg" class="gov-logo" alt="Indian Railways logo" />
+          <a class="brand" href="index.html"><span class="brand-title">RailSwift</span><span class="brand-subtitle">Indian Railways Reservation Portal</span></a>
+        </div>
+        <button class="nav-toggle" id="navToggle">Menu</button>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Home</a><a href="booking.html">Book Ticket</a><a href="pnr.html">PNR Status</a><a href="station-enquiry.html">Station Enquiry</a><a href="contact.html">Contact</a><a id="navDashboardLink" class="hidden" href="dashboard.html">Dashboard</a><a id="navLoginLink" class="btn btn-secondary active" href="login.html">Login</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-wrap">
+    <p class="breadcrumb"><a href="index.html">Home</a> / <span>Login</span></p>
+
+    <section class="card" style="max-width:760px;">
+      <h1>Login to RailSwift</h1>
+      <p class="muted">Use Email + Password or Mobile OTP.</p>
+
+      <div class="auth-tabs">
+        <button type="button" id="tabEmail" class="auth-tab active">Email Login</button>
+        <button type="button" id="tabOtp" class="auth-tab">Mobile OTP Login</button>
+      </div>
+
+      <div id="emailLoginSection">
+        <form id="emailLoginForm" class="form-grid-2">
+          <label>Email
+            <input type="email" id="loginEmail" required />
+          </label>
+          <label>Password
+            <input type="password" id="loginPassword" required />
+          </label>
+          <div><button class="btn" type="submit">Login</button></div>
+          <div style="display:flex;align-items:end;gap:0.5rem;">
+            <a href="#" class="muted">Forgot Password?</a>
+            <a href="signup.html" class="muted">Create Account</a>
+          </div>
+        </form>
+      </div>
+
+      <div id="otpLoginSection" class="hidden">
+        <form id="otpSendForm" class="form-grid-2">
+          <label>Mobile Number
+            <input type="tel" id="otpMobile" pattern="[0-9]{10}" placeholder="10-digit mobile" required />
+          </label>
+          <div style="display:flex;align-items:end;"><button class="btn" type="submit">Send OTP</button></div>
+        </form>
+        <p id="otpInfo" class="message info hidden"></p>
+        <form id="otpVerifyForm" class="form-grid-2 hidden">
+          <label>Enter OTP
+            <input type="text" id="otpCode" minlength="6" maxlength="6" required />
+          </label>
+          <div style="display:flex;align-items:end;"><button class="btn" type="submit">Verify OTP</button></div>
+        </form>
+      </div>
+
+      <div id="loginMessage" class="message hidden"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><div class="footer-links"><a href="#">About IRCTC</a><a href="contact.html">Contact</a><a href="#">Terms and Conditions</a><a href="#">Privacy Policy</a></div><p class="footer-copy">RailSwift - Government Service Interface</p></div></footer>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

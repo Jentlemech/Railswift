@@ -1,0 +1,72 @@
+[
+  {
+    "id": "train-booking",
+    "title": "Train Booking",
+    "icon": "fa-solid fa-train",
+    "description": "Search, compare and reserve train tickets quickly.",
+    "image": "assets/images/services/train-booking.svg"
+  },
+  {
+    "id": "e-catering",
+    "title": "E-Catering",
+    "icon": "fa-solid fa-utensils",
+    "description": "Pre-order meals at selected stations during travel.",
+    "image": "assets/images/services/e-catering.svg"
+  },
+  {
+    "id": "flights",
+    "title": "Flights",
+    "icon": "fa-solid fa-plane",
+    "description": "Book domestic and international flights seamlessly.",
+    "image": "assets/images/services/flights.svg"
+  },
+  {
+    "id": "bus-booking",
+    "title": "Bus Booking",
+    "icon": "fa-solid fa-bus",
+    "description": "Compare operators and reserve bus seats instantly.",
+    "image": "assets/images/services/bus-booking.svg"
+  },
+  {
+    "id": "hotels",
+    "title": "Hotels",
+    "icon": "fa-solid fa-hotel",
+    "description": "Find budget to premium stays near stations.",
+    "image": "assets/images/services/hotels.svg"
+  },
+  {
+    "id": "holiday-packages",
+    "title": "Holiday Packages",
+    "icon": "fa-solid fa-umbrella-beach",
+    "description": "Rail + stay + sightseeing bundles for every budget.",
+    "image": "assets/images/services/holiday-packages.svg"
+  },
+  {
+    "id": "tourist-trains",
+    "title": "Tourist Trains",
+    "icon": "fa-solid fa-gem",
+    "description": "Curated heritage and luxury tourist train circuits.",
+    "image": "assets/images/services/tourist-trains.svg"
+  },
+  {
+    "id": "hill-railways",
+    "title": "Hill Railways",
+    "icon": "fa-solid fa-mountain",
+    "description": "Explore iconic mountain rail routes and packages.",
+    "image": "assets/images/services/hill-railways.svg"
+  },
+  {
+    "id": "charter-train",
+    "title": "Charter Train",
+    "icon": "fa-solid fa-route",
+    "description": "Plan private charter train journeys for groups.",
+    "image": "assets/images/services/charter-train.svg"
+  },
+  {
+    "id": "gallery",
+    "title": "Gallery",
+    "icon": "fa-regular fa-images",
+    "description": "Browse travel moments, destinations and trains.",
+    "image": "assets/images/services/gallery.svg"
+  }
+]

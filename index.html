@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RailSwift | Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="home">
+  <header>
+    <div class="gov-strip">
+      <div class="container">Government of India | Ministry of Railways</div>
+    </div>
+    <div class="topbar">
+      <nav class="container nav">
+        <div class="brand-wrap">
+          <img src="assets/images/indian-railways-logo.svg" class="gov-logo" alt="Indian Railways logo" />
+          <a class="brand" href="index.html">
+            <span class="brand-title">RailSwift</span>
+            <span class="brand-subtitle">Smart IRCTC-Inspired Reservation Portal</span>
+          </a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">Menu</button>
+        <div class="nav-links" id="navLinks">
+          <a class="active" href="index.html">Home</a>
+          <a href="booking.html">Book Ticket</a>
+          <a href="pnr.html">PNR Status</a>
+          <a href="schedule.html">Train Status</a>
+          <a href="station-enquiry.html">Station Enquiry</a>
+          <a href="destinations.html">Travel Destinations</a>
+          <a href="tour-packages.html">Tour Packages</a>
+          <a href="services.html">Services</a>
+          <a href="my-trips.html">My Bookings</a>
+          <a href="contact.html">Contact</a>
+          <a id="navDashboardLink" class="hidden" href="dashboard.html">Dashboard</a>
+          <a id="navLoginLink" class="btn btn-secondary" href="login.html">Login</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="notice-ticker" aria-label="Travel alerts">
+      <div class="ticker-track">
+        <span><i class="fa-solid fa-bell"></i> Tatkal booking opens at 10:00 AM (AC) and 11:00 AM (Non-AC).</span>
+        <span><i class="fa-solid fa-shield-halved"></i> Fraud Alert: Never share OTP or card details with unknown callers.</span>
+        <span><i class="fa-solid fa-triangle-exclamation"></i> Carry valid government ID proof during journey.</span>
+        <span><i class="fa-solid fa-bell"></i> Tatkal booking opens at 10:00 AM (AC) and 11:00 AM (Non-AC).</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-banner" style="background-image: url('assets/images/services/train-booking.svg');">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <h1 class="hero-title hero-title-light">Indian Railways Reservation, Reimagined</h1>
+        <p class="hero-subtitle hero-subtitle-light">Cleaner booking flow, richer travel discovery, and all key IRCTC services in one place.</p>
+
+        <section class="card search-panel">
+          <form id="homeSearchForm" class="form-grid">
+            <div class="station-pair-grid">
+              <label>
+                From Station
+                <div class="input-icon-wrap">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <input id="fromStation" placeholder="Station name or code" required />
+                </div>
+              </label>
+
+              <button type="button" id="swapStationsHome" class="swap-btn" aria-label="Swap stations">&#8646;</button>
+
+              <label>
+                To Station
+                <div class="input-icon-wrap">
+                  <i class="fa-solid fa-flag-checkered"></i>
+                  <input id="toStation" placeholder="Station name or code" required />
+                </div>
+              </label>
+            </div>
+
+            <label>
+              Journey Date
+              <div class="input-icon-wrap">
+                <i class="fa-regular fa-calendar"></i>
+                <input type="date" id="travelDate" required />
+              </div>
+            </label>
+            <label>
+              Class
+              <div class="input-icon-wrap">
+                <i class="fa-solid fa-ticket"></i>
+                <select id="travelClass" required>
+                  <option value="SL">Sleeper (SL)</option>
+                  <option value="2S">Second Sitting (2S)</option>
+                  <option value="3A">AC 3 Tier (3A)</option>
+                  <option value="2A">AC 2 Tier (2A)</option>
+                  <option value="1A">AC First Class (1A)</option>
+                  <option value="EC">Executive Chair Car (EC)</option>
+                  <option value="CC">Chair Car (CC)</option>
+                </select>
+              </div>
+            </label>
+            <label>
+              Quota
+              <div class="input-icon-wrap">
+                <i class="fa-solid fa-users"></i>
+                <select id="travelQuota" required>
+                  <option value="General">General</option>
+                  <option value="Tatkal">Tatkal</option>
+                  <option value="Ladies">Ladies</option>
+                  <option value="Senior Citizen">Senior Citizen</option>
+                  <option value="Armed Forces">Armed Forces</option>
+                </select>
+              </div>
+            </label>
+            <div class="search-action">
+              <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search Trains</button>
+            </div>
+          </form>
+
+          <div id="homeMessage" class="message hidden"></div>
+          <div class="notice">Important: Carry a valid ID proof during travel.</div>
+        </section>
+      </div>
+    </section>
+
+    <section class="container page-wrap section-block reveal">
+      <div class="section-head">
+        <h2>Services Hub</h2>
+        <p class="muted">Modern cards for every major railway and travel service.</p>
+      </div>
+      <div id="serviceHubGrid" class="service-hub-grid"></div>
+    </section>
+
+    <section class="container section-block reveal">
+      <div class="section-head">
+        <h2>Train Tools</h2>
+        <p class="muted">Quick-access tools for status checks and journey management.</p>
+      </div>
+      <div class="tool-grid">
+        <a class="tool-card" href="pnr.html"><i class="fa-solid fa-hashtag"></i>PNR Status</a>
+        <a class="tool-card" href="seat-availability.html"><i class="fa-solid fa-chair"></i>Seat Availability</a>
+        <a class="tool-card" href="schedule.html"><i class="fa-regular fa-clock"></i>Train Schedule</a>
+        <a class="tool-card" href="track-train.html"><i class="fa-solid fa-location-crosshairs"></i>Track Train</a>
+        <a class="tool-card" href="dashboard.html"><i class="fa-solid fa-ban"></i>Cancel Ticket</a>
+        <a class="tool-card" href="dashboard.html"><i class="fa-solid fa-arrows-turn-right"></i>Change Boarding Point</a>
+      </div>
+    </section>
+
+    <section class="container section-block reveal">
+      <div class="section-head">
+        <h2>Travel Destinations</h2>
+        <p class="muted">Click a destination to view top trains and fastest routes.</p>
+      </div>
+      <div id="destinationGrid" class="destination-grid"></div>
+      <article id="destinationInsights" class="destination-insights card hidden"></article>
+    </section>
+
+    <section class="container section-block reveal">
+      <div class="section-head">
+        <h2>Tour Packages</h2>
+        <p class="muted">Curated rail holidays and tourism experiences.</p>
+      </div>
+      <div id="packageGrid" class="package-grid"></div>
+    </section>
+
+    <section class="container section-block reveal">
+      <div class="feature-header">
+        <h2>Why RailSwift</h2>
+        <p class="muted">Built to remove common IRCTC pain points and make booking smooth.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <i class="fa-solid fa-bolt"></i>
+          <h3>Faster Booking</h3>
+          <p>Reduced clicks and no clutter for quicker ticket confirmation.</p>
+        </article>
+        <article class="feature-card">
+          <i class="fa-solid fa-route"></i>
+          <h3>Better Station Search</h3>
+          <p>Smart station dropdown with instant code/name/city filtering.</p>
+        </article>
+        <article class="feature-card">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+          <h3>Mobile Friendly</h3>
+          <p>Responsive layout designed for both desktop and phone screens.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <a href="#">About IRCTC</a>
+        <a href="contact.html">Contact</a>
+        <a href="#">Terms and Conditions</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+      <p class="footer-copy">RailSwift - Cleaner UX for Indian Rail Reservations</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>
+
+

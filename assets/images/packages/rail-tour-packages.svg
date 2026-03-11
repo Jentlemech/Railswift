@@ -1,0 +1,15 @@
+﻿<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 700' role='img' aria-label='Rail Tour Packages'>
+  <defs>
+    <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#0ea5e9'/>
+      <stop offset='100%' stop-color='#0284c7'/>
+    </linearGradient>
+  </defs>
+  <rect width='1200' height='700' fill='url(#g)'/>
+  <rect x='90' y='420' width='1020' height='190' rx='24' fill='rgba(255,255,255,0.2)'/>
+  <path d='M120 500 L310 360 L500 500 Z' fill='rgba(255,255,255,0.35)'/>
+  <path d='M360 500 L560 330 L760 500 Z' fill='rgba(255,255,255,0.3)'/>
+  <path d='M630 500 L860 350 L1090 500 Z' fill='rgba(255,255,255,0.25)'/>
+  <text x='80' y='130' fill='white' font-family='Roboto, Arial, sans-serif' font-size='58' font-weight='700'>Rail Tour Packages</text>
+  <text x='84' y='180' fill='rgba(255,255,255,0.95)' font-family='Roboto, Arial, sans-serif' font-size='30'>Premium curated railway experiences</text>
+</svg>
