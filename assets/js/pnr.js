@@ -25,19 +25,31 @@
     const passengers = Array.isArray(booking.passengers) && booking.passengers.length
       ? booking.passengers
       : [{ name: booking.passengerName, coach: booking.coach, seat: booking.seat }];
+    const normalizedStatus = String(booking.status || "").toUpperCase();
+    const badgeClass = normalizedStatus === "CONFIRMED" ? "badge-success" : normalizedStatus === "RAC" ? "badge-warning" : "badge-danger";
 
-    const passengerLines = passengers.map((p, i) => `<div class="ticket-field"><strong>P${i + 1}</strong>${p.name} - ${p.coach}-${p.seat}</div>`).join("");
+    const passengerLines = passengers
+      .map((p, i) => {
+        const seatText = normalizedStatus === "CONFIRMED"
+          ? `${p.coach}-${p.seat}`
+          : normalizedStatus === "RAC"
+            ? "RAC seat will be assigned after charting"
+            : "Seat not assigned yet";
+        return `<div class="ticket-field"><strong>P${i + 1}</strong>${p.name} - ${seatText}</div>`;
+      })
+      .join("");
 
     RP.byId("pnrResult").innerHTML = `
       <div class="ticket-card">
         <h2>PNR Status</h2>
-        <p><span class="badge ${booking.status === "CONFIRMED" ? "badge-success" : "badge-danger"}">${booking.status}</span></p>
+        <p><span class="badge ${badgeClass}">${normalizedStatus || "UNKNOWN"}</span></p>
         <div class="ticket-grid">
           <div class="ticket-field"><strong>Train</strong>${booking.trainName} (${booking.trainNumber})</div>
           <div class="ticket-field"><strong>Journey</strong>${routeText(booking)}</div>
           <div class="ticket-field"><strong>Date</strong>${booking.date}</div>
           <div class="ticket-field"><strong>Quota</strong>${booking.quota || booking.bookingCategory || "General"}</div>
           <div class="ticket-field"><strong>Class</strong>${RP.classLabels[booking.travelClass] || booking.travelClass}</div>
+          <div class="ticket-field"><strong>Coach / Seat</strong>${normalizedStatus === "CONFIRMED" ? `${booking.coach}-${booking.seat}` : normalizedStatus === "RAC" ? "RAC" : "Waiting List"}</div>
           <div class="ticket-field"><strong>Passengers</strong>${passengers.length}</div>
           ${passengerLines}
         </div>

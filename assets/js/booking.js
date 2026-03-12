@@ -31,6 +31,10 @@
   const paymentForm = RP.byId("paymentForm");
   const ticketPreview = RP.byId("ticketPreview");
   const filterButtons = Array.from(document.querySelectorAll("[data-train-filter]"));
+  const bookingCaptchaWrap = RP.byId("bookingCaptchaWrap");
+  const bookingCaptchaQuestion = RP.byId("bookingCaptchaQuestion");
+  const bookingCaptchaInput = RP.byId("bookingCaptchaInput");
+  const bookingCaptchaVerifyBtn = RP.byId("bookingCaptchaVerifyBtn");
 
   const travelCategories = [
     "General Passenger",
@@ -52,6 +56,9 @@
   let allSeats = [];
   let selectedSeats = [];
   let activeTrainFilter = "recommended";
+  let searchAttempts = 0;
+  let bookingCaptchaAnswer = "";
+  let bookingCaptchaVerified = false;
 
   const berthCycle = ["LB", "MB", "UB", "LB", "MB", "UB", "SL", "SU"];
 
@@ -67,6 +74,23 @@
   function seatLabel(berthCode) {
     const map = { LB: "Lower Berth", MB: "Middle Berth", UB: "Upper Berth", SL: "Side Lower", SU: "Side Upper" };
     return map[berthCode] || berthCode;
+  }
+
+  function createCaptchaChallenge() {
+    const left = Math.floor(10 + Math.random() * 40);
+    const right = Math.floor(1 + Math.random() * 9);
+    bookingCaptchaAnswer = String(left + right);
+    if (bookingCaptchaQuestion) {
+      bookingCaptchaQuestion.textContent = `Security check: ${left} + ${right} = ?`;
+    }
+    if (bookingCaptchaInput) {
+      bookingCaptchaInput.value = "";
+    }
+  }
+
+  function bookingCaptchaRequired() {
+    const isTatkal = RP.byId("journeyQuota").value === "Tatkal";
+    return isTatkal || searchAttempts >= 2;
   }
 
   function setStep(stepNumber) {
@@ -341,7 +365,7 @@
 
   function renderTrainList(results, preferredClass) {
     if (!results.length) {
-      trainList.innerHTML = '<div class="train-item"><p class="muted">No trains found for selected route/date.</p></div>';
+      trainList.innerHTML = '<div class="train-item"><p class="muted">No trains found for this route on the selected date. Try another date, class, or nearby station.</p></div>';
       return;
     }
 
@@ -400,7 +424,7 @@
             <div class="train-footer">
               <p class="muted"><i class="fa-solid fa-road"></i> ${train.distanceKm} km | Classes: ${(train.availableClasses || []).join(", ")}</p>
               <button class="btn" data-train="${train.trainNumber}" data-class="${classToBook}">
-                <i class="fa-solid fa-ticket"></i> Book Ticket
+                <i class="fa-solid fa-ticket"></i> Book Now
               </button>
             </div>
 
@@ -459,7 +483,26 @@
     if (!dateInput.value) dateInput.value = minDate;
   }
 
-  if (swapStationsBtn) {`r`n    swapStationsBtn.addEventListener("click", function swapStations() {`r`n      RP.swapStations("fromStation", "toStation");`r`n    });`r`n  }
+  if (swapStationsBtn) {
+    swapStationsBtn.addEventListener("click", function swapStations() {
+      RP.swapStations("fromStation", "toStation");
+    });
+  }
+
+  if (bookingCaptchaVerifyBtn) {
+    bookingCaptchaVerifyBtn.addEventListener("click", function () {
+      const answer = String((bookingCaptchaInput && bookingCaptchaInput.value) || "").trim();
+      if (answer !== bookingCaptchaAnswer) {
+        RP.showMessage("bookingMessage", "Verification answer is incorrect. Please try again.", "error");
+        return;
+      }
+
+      bookingCaptchaVerified = true;
+      if (bookingCaptchaWrap) bookingCaptchaWrap.classList.add("hidden");
+      RP.showMessage("bookingMessage", "Verification complete. You can continue searching trains.", "success");
+    });
+  }
+
   filterButtons.forEach((button) => {
     button.addEventListener("click", function () {
       activeTrainFilter = button.getAttribute("data-train-filter") || "recommended";
@@ -475,6 +518,15 @@
     event.preventDefault();
     RP.hideMessage("bookingMessage");
 
+    if (bookingCaptchaRequired() && !bookingCaptchaVerified) {
+      if (bookingCaptchaWrap) {
+        createCaptchaChallenge();
+        bookingCaptchaWrap.classList.remove("hidden");
+      }
+      RP.showMessage("bookingMessage", "Please complete the quick verification before searching trains.", "info");
+      return;
+    }
+
     try {
       RP.showLoader();
 
@@ -486,7 +538,7 @@
 
       const [fromStation, toStation] = await Promise.all([RP.getStationByCode(fromCode), RP.getStationByCode(toCode)]);
       if (!fromStation || !toStation) {
-        RP.showMessage("bookingMessage", "Enter valid From and To stations.", "error");
+        RP.showMessage("bookingMessage", "Please select valid source and destination stations from the autocomplete list.", "error");
         return;
       }
 
@@ -511,6 +563,8 @@
         quota,
         results: payload.results || []
       };
+      searchAttempts += 1;
+      bookingCaptchaVerified = false;
 
       selectedTrain = null;
       passengers = [];
@@ -519,7 +573,7 @@
       renderFilteredTrainList(preferredClass);
       setStep(2);
     } catch (error) {
-      RP.showMessage("bookingMessage", error.message || "Train search failed.", "error");
+      RP.showMessage("bookingMessage", error.message || "No trains found for this route on the selected date. Please try another class, date, or nearby station.", "error");
     } finally {
       RP.hideLoader();
     }

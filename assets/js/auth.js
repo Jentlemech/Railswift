@@ -38,6 +38,45 @@
     const otpSendForm = RP.byId("otpSendForm");
     const otpVerifyForm = RP.byId("otpVerifyForm");
     const otpInfo = RP.byId("otpInfo");
+    const loginCaptchaWrap = RP.byId("loginCaptchaWrap");
+    const loginCaptchaQuestion = RP.byId("loginCaptchaQuestion");
+    const loginCaptchaInput = RP.byId("loginCaptchaInput");
+    const loginCaptchaVerifyBtn = RP.byId("loginCaptchaVerifyBtn");
+    const otpCaptchaWrap = RP.byId("otpCaptchaWrap");
+    const otpCaptchaQuestion = RP.byId("otpCaptchaQuestion");
+    const otpCaptchaInput = RP.byId("otpCaptchaInput");
+    const otpCaptchaVerifyBtn = RP.byId("otpCaptchaVerifyBtn");
+
+    let loginFailures = 0;
+    let otpSendAttempts = 0;
+    let loginCaptchaAnswer = null;
+    let otpCaptchaAnswer = null;
+    let loginCaptchaVerified = false;
+    let otpCaptchaVerified = false;
+
+    function newCaptchaPair() {
+      const left = Math.floor(10 + Math.random() * 40);
+      const right = Math.floor(1 + Math.random() * 9);
+      return { question: `${left} + ${right} = ?`, answer: String(left + right) };
+    }
+
+    function setupCaptcha(wrap, questionEl, inputEl) {
+      const pair = newCaptchaPair();
+      wrap.classList.remove("hidden");
+      questionEl.textContent = `Security challenge: ${pair.question}`;
+      inputEl.value = "";
+      return pair.answer;
+    }
+
+    function verifyCaptcha(inputEl, expected, onSuccessMessage) {
+      if (String(inputEl.value || "").trim() !== String(expected || "")) {
+        RP.showMessage("loginMessage", "Verification answer is incorrect. Please try again.", "error");
+        return false;
+      }
+
+      RP.showMessage("loginMessage", onSuccessMessage, "success");
+      return true;
+    }
 
     function setTab(mode) {
       const emailActive = mode === "email";
@@ -58,12 +97,23 @@
       const email = RP.byId("loginEmail").value.trim().toLowerCase();
       const password = RP.byId("loginPassword").value;
 
+      if (loginFailures >= 1 && !loginCaptchaVerified) {
+        if (loginCaptchaWrap && loginCaptchaQuestion && loginCaptchaInput) {
+          loginCaptchaAnswer = setupCaptcha(loginCaptchaWrap, loginCaptchaQuestion, loginCaptchaInput);
+        }
+        RP.showMessage("loginMessage", "Please complete the quick verification before trying again.", "info");
+        return;
+      }
+
       const user = RP.getUsers().find((u) => u.email === email && u.password === password);
       if (!user) {
+        loginFailures += 1;
+        loginCaptchaVerified = false;
         RP.showMessage("loginMessage", "Invalid email or password.", "error");
         return;
       }
 
+      loginFailures = 0;
       RP.setCurrentUser({ id: user.id, name: user.name, email: user.email, mobile: user.mobile });
       RP.showMessage("loginMessage", "Login successful. Redirecting to dashboard...", "success");
       setTimeout(() => (window.location.href = "dashboard.html"), 700);
@@ -79,9 +129,19 @@
         return;
       }
 
+      if (otpSendAttempts >= 1 && !otpCaptchaVerified) {
+        if (otpCaptchaWrap && otpCaptchaQuestion && otpCaptchaInput) {
+          otpCaptchaAnswer = setupCaptcha(otpCaptchaWrap, otpCaptchaQuestion, otpCaptchaInput);
+        }
+        RP.showMessage("loginMessage", "Please complete the verification before requesting another OTP.", "info");
+        return;
+      }
+
       try {
         RP.showLoader();
         await postJson("/send-otp", { mobile, flow: "login" });
+        otpSendAttempts += 1;
+        otpCaptchaVerified = false;
         otpInfo.textContent = `OTP sent to ${mobile}. It expires in 5 minutes.`;
         otpInfo.classList.remove("hidden");
         otpVerifyForm.classList.remove("hidden");
@@ -92,6 +152,20 @@
         RP.hideLoader();
       }
     });
+
+    if (loginCaptchaVerifyBtn) {
+      loginCaptchaVerifyBtn.addEventListener("click", function () {
+        loginCaptchaVerified = verifyCaptcha(loginCaptchaInput, loginCaptchaAnswer, "Verification complete. You can try logging in again.");
+        if (loginCaptchaVerified && loginCaptchaWrap) loginCaptchaWrap.classList.add("hidden");
+      });
+    }
+
+    if (otpCaptchaVerifyBtn) {
+      otpCaptchaVerifyBtn.addEventListener("click", function () {
+        otpCaptchaVerified = verifyCaptcha(otpCaptchaInput, otpCaptchaAnswer, "Verification complete. You can request another OTP now.");
+        if (otpCaptchaVerified && otpCaptchaWrap) otpCaptchaWrap.classList.add("hidden");
+      });
+    }
 
     otpVerifyForm.addEventListener("submit", async function (event) {
       event.preventDefault();

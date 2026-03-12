@@ -107,6 +107,19 @@
 
           <div class="search-action search-group"><button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search Trains</button></div>
         </form>
+        <div id="bookingCaptchaWrap" class="captcha-box hidden">
+          <div class="captcha-head">
+            <strong>Quick verification</strong>
+            <span class="muted">Shown only for high-demand or repeated booking attempts.</span>
+          </div>
+          <div class="captcha-body">
+            <p id="bookingCaptchaQuestion" class="captcha-question"></p>
+            <label>Enter answer
+              <input id="bookingCaptchaInput" inputmode="numeric" placeholder="Solve to continue" />
+            </label>
+            <button id="bookingCaptchaVerifyBtn" class="btn btn-secondary" type="button">Verify</button>
+          </div>
+        </div>
       </div>
 
       <div id="step2" class="hidden">

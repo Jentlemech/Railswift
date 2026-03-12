@@ -52,6 +52,19 @@
             <a href="signup.html" class="muted">Create Account</a>
           </div>
         </form>
+        <div id="loginCaptchaWrap" class="captcha-box hidden">
+          <div class="captcha-head">
+            <strong>Security check</strong>
+            <span class="muted">Shown only after suspicious or repeated login attempts.</span>
+          </div>
+          <div class="captcha-body">
+            <p id="loginCaptchaQuestion" class="captcha-question"></p>
+            <label>Answer
+              <input id="loginCaptchaInput" inputmode="numeric" placeholder="Enter answer" />
+            </label>
+            <button id="loginCaptchaVerifyBtn" class="btn btn-secondary" type="button">Verify</button>
+          </div>
+        </div>
       </div>
 
       <div id="otpLoginSection" class="hidden">
@@ -68,6 +81,19 @@
           </label>
           <div style="display:flex;align-items:end;"><button class="btn" type="submit">Verify OTP</button></div>
         </form>
+        <div id="otpCaptchaWrap" class="captcha-box hidden">
+          <div class="captcha-head">
+            <strong>Verification required</strong>
+            <span class="muted">Extra protection before sending another OTP.</span>
+          </div>
+          <div class="captcha-body">
+            <p id="otpCaptchaQuestion" class="captcha-question"></p>
+            <label>Answer
+              <input id="otpCaptchaInput" inputmode="numeric" placeholder="Enter answer" />
+            </label>
+            <button id="otpCaptchaVerifyBtn" class="btn btn-secondary" type="button">Verify</button>
+          </div>
+        </div>
       </div>
 
       <div id="loginMessage" class="message hidden"></div>
